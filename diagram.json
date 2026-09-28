@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "Suchithra S",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": 30.63,
+      "left": 148.47,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 123.85,
+      "left": 140.33,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:D2", "r1:1", "green", [ "h0" ] ],
+    [ "r1:2", "led1:C", "green", [ "v0" ] ],
+    [ "led1:A", "esp:GND.1", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
